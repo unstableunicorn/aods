@@ -21,11 +21,11 @@ jobs:
       - uses: actions/checkout@v2
       - name: Publish Base Image
         uses: elgohr/Publish-Docker-Github-Action@master
-        workdir: base_image
         with:
           name: elrichindy/aods_base
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+          workdir: base_image
           tags: "latest,py3.7,base"
       - name: Publish AODS Images
         uses: elgohr/Publish-Docker-Github-Action@master
