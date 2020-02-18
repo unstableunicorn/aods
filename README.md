@@ -8,7 +8,7 @@ First open a command prompt and navigate to the directory with the AODS course m
 docker run --name container_name -p 8888:8888 -v ${PWD}:/home/jovyan/work elrichindy/aods:latest
 ```
 
-The terminal will show which link and token to use to connect
+The terminal will show which link and token to use to connect.
 
 
 ## Connecting to image
