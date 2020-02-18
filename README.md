@@ -1,6 +1,10 @@
 # All Of Data Science Image
 Docker image with Jupyter notebooks and cmake
 
+docker image repo here:
+
+https://hub.docker.com/repository/docker/elrichindy/aods
+
 ## Running Image
 First open a command prompt and navigate to the directory with the AODS course material
 
