@@ -28,7 +28,7 @@ You will need to do an apt update first:
 apt update
 ```
 
-Then you can install linuc packages:
+Then you can install linux packages:
 
 ```
 apt install <some linux package>

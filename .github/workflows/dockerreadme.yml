@@ -1,0 +1,26 @@
+name: DockerReadme
+
+on:
+  push:
+    paths:
+      - '.github/workflows/dockerreadme.yml'
+      - 'README.md'
+    branches:
+      - master
+    tags:
+      - v*
+
+  pull_request:
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v2.1.0
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKERHUB_REPOSITORY: elrichindy/aods
+          # This can be remove if default of README.md in base dir, leaving for reference
+          README_FILEPATH: ./README.md

@@ -1,21 +1,18 @@
-name: Docker
+name: DockerPush
 
 on:
   push:
-    # Publish `master` as Docker `latest` image.
+    paths-ignore:
+      - '.github/workflows/dockerreadme.yml'
+      - 'README.md'
     branches:
       - master
-
-    # Publish `v1.2.3` tags as releases.
     tags:
       - v*
-
-  # Run tests for any PRs.
   pull_request:
 
 jobs:
   push:
-    # Ensure test job passes before pushing image.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -34,11 +31,3 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           tags: "latest,py3.7"
-      - name: Docker Hub Description
-        uses: peter-evans/dockerhub-description@v2.1.0
-        env:
-          DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKERHUB_REPOSITORY: elrichindy/aods
-          # This can be remove if default of README.md in base dir, leaving for reference
-          README_FILEPATH: ./README.md
